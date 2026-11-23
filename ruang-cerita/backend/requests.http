@@ -1,0 +1,89 @@
+@host = http://localhost:3000
+
+### 1. GET semua member
+GET {{host}}/member
+
+### 2. GET satu member
+GET {{host}}/member/1
+
+### 3. POST tambah member
+POST {{host}}/member
+Content-Type: application/json
+
+{
+  "nik": "3201010101010099",
+  "nama": "Budi Santoso",
+  "tempatLahir": "Bandung",
+  "tanggalLahir": "2000-05-10",
+  "jenisKelamin": "L",
+  "golonganDarah": "O",
+  "alamat": "Jl. Melati No. 5",
+  "rt": "01",
+  "rw": "02",
+  "kelurahan": "Sukamaju",
+  "kecamatan": "Cileungsi",
+  "agama": "Islam",
+  "statusPerkawinan": "Belum Kawin",
+  "pekerjaan": "Mahasiswa",
+  "kewarganegaraan": "WNI",
+  "noHp": "081299998888",
+  "email": "budi@mail.com",
+  "topik": "Stres / Kecemasan",
+  "cerita": "Akhir-akhir ini saya sulit tidur.",
+  "setuju": true
+}
+
+### 4. PATCH ubah sebagian data
+PATCH {{host}}/member/6
+Content-Type: application/json
+
+{
+  "pekerjaan": "Guru",
+  "topik": "Karier / Sekolah"
+}
+
+### 5. DELETE hapus member
+DELETE {{host}}/member/6
+
+### ---------- SKENARIO ERROR ----------
+
+### 6. ERROR 404 - member tidak ditemukan
+GET {{host}}/member/999
+
+### 7. ERROR 409 - NIK duplikat (NIK ini sudah ada di data awal)
+POST {{host}}/member
+Content-Type: application/json
+
+{
+  "nik": "3201010101010001",
+  "nama": "Duplikat Test",
+  "tempatLahir": "Medan",
+  "tanggalLahir": "2001-01-01",
+  "jenisKelamin": "P",
+  "golonganDarah": "A",
+  "alamat": "Jl. Test",
+  "rt": "01",
+  "rw": "01",
+  "kelurahan": "Test",
+  "kecamatan": "Test",
+  "agama": "Islam",
+  "statusPerkawinan": "Belum Kawin",
+  "pekerjaan": "Mahasiswa",
+  "kewarganegaraan": "WNI",
+  "noHp": "081200000000",
+  "email": "dup@mail.com",
+  "topik": "Lainnya",
+  "setuju": true
+}
+
+### 8. ERROR 400 - validasi gagal
+POST {{host}}/member
+Content-Type: application/json
+
+{
+  "nik": "123",
+  "nama": "ab",
+  "email": "bukan-email",
+  "noHp": "12345",
+  "setuju": false
+}

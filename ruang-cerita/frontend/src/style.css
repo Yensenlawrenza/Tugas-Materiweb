@@ -1,0 +1,998 @@
+/* ==========================================================================
+   TEMA ESTATIS & HARMONIS: SOFT PASTEL PINK x MINT / SAGE GREEN
+   ========================================================================== */
+
+:root {
+    /* Nuansa Pink Muda */
+    --pink-ultra-muda: #FFF0F5; /* Lavender Blush / Very Soft Pink */
+    --pink-muda: #FFD1DC;       /* Pastel Pink */
+    --pink-sedang: #FFB6C1;     /* Light Pink */
+    --pink-aksen: #E892A8;      /* Rose Pink for subtle accents */
+
+    /* Nuansa Hijau Muda & Sage */
+    --hijau-ultra-muda: #E8F5E9; /* Softest Mint */
+    --hijau-muda: #C8E6C9;       /* Pale Sage Green */
+    --hijau-sedang: #A3E4D7;     /* Mint Sage */
+    --hijau-aksen: #52BE80;      /* Fresh Mint Accent */
+    --hijau-tua: #2E5A44;        /* Deep Sage Green */
+
+    /* Netral & Dasar */
+    --krem-lembut: #FDFBF7;      /* Warm Cream */
+    --putih-murni: #FFFFFF;
+    --teks-utama: #2D3A32;       /* Deep Charcoal-Green */
+}
+
+
+/* ==========================================================================
+   RESET & DASAR
+   ========================================================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 24px 16px;
+    font-family: Georgia, Cambria, "Times New Roman", serif;
+    font-size: 17px;
+    line-height: 1.7;
+    color: var(--teks-utama);
+    background-color: #EBF5ED;
+    position: relative;
+    overflow-x: hidden;
+}
+
+
+/* Tipografi Utama */
+
+h1,
+h2,
+h3 {
+    font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+    font-weight: 700;
+    font-style: italic;
+    color: var(--hijau-tua);
+    line-height: 1.25;
+    margin: 0 0 0.5em;
+}
+
+h1 {
+    font-size: 2.6rem;
+}
+
+h2 {
+    font-size: 1.9rem;
+}
+
+h3 {
+    font-size: 1.35rem;
+    margin-top: 1.4em;
+}
+
+a {
+    color: var(--hijau-tua);
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: var(--pink-aksen);
+}
+
+
+/* ==========================================================================
+   LATAR BELAKANG INTERAKTIF (AURORA & ORBS)
+   ========================================================================== */
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+
+    background:
+        radial-gradient(
+            45% 45% at 12% 18%,
+            var(--pink-muda) 0%,
+            transparent 70%
+        ),
+        radial-gradient(
+            50% 50% at 88% 12%,
+            var(--hijau-muda) 0%,
+            transparent 70%
+        ),
+        radial-gradient(
+            40% 40% at 80% 88%,
+            var(--pink-ultra-muda) 0%,
+            transparent 70%
+        ),
+        radial-gradient(
+            45% 45% at 15% 85%,
+            var(--hijau-sedang) 0%,
+            transparent 70%
+        ),
+        #EBF5ED;
+
+    filter: blur(45px) saturate(1.15);
+    animation: aurora 20s ease-in-out infinite alternate;
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+
+    background:
+        radial-gradient(
+            circle 140px at 8% 72%,
+            rgba(255, 209, 220, 0.45),
+            transparent 70%
+        ),
+        radial-gradient(
+            circle 160px at 92% 38%,
+            rgba(200, 230, 201, 0.4),
+            transparent 70%
+        );
+
+    animation: orb 16s ease-in-out infinite alternate;
+    pointer-events: none;
+}
+
+
+/* Animasi Aurora */
+
+@keyframes aurora {
+    0% {
+        transform: scale(1) rotate(0deg);
+    }
+
+    100% {
+        transform: scale(1.06) rotate(2deg);
+    }
+}
+
+
+/* Animasi Orb */
+
+@keyframes orb {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    100% {
+        transform: translate(-20px, 25px);
+    }
+}
+
+
+/* ==========================================================================
+   KONTAINER UTAMA (.WRAP)
+   ========================================================================== */
+
+.wrap {
+    max-width: 1040px;
+    margin: 0 auto;
+
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(8px);
+
+    border-radius: 20px;
+    overflow: hidden;
+
+    border: 1px solid rgba(255, 255, 255, 0.9);
+
+    box-shadow:
+        0 0 0 4px rgba(255, 182, 193, 0.3),
+        0 20px 50px rgba(46, 90, 68, 0.12);
+}
+
+
+/* ==========================================================================
+   HEADER & ANIMASI KILAU
+   ========================================================================== */
+
+header {
+    padding: 38px 40px;
+
+    background: linear-gradient(
+        120deg,
+        var(--pink-sedang),
+        var(--pink-ultra-muda),
+        var(--hijau-ultra-muda),
+        var(--hijau-muda)
+    );
+
+    background-size: 300% 300%;
+    animation: gradasi 14s ease infinite;
+
+    border-bottom: 3px solid var(--hijau-tua);
+
+    position: relative;
+    overflow: hidden;
+}
+
+
+/* Animasi Gradasi */
+
+@keyframes gradasi {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
+header h1,
+header p {
+    position: relative;
+    z-index: 2;
+}
+
+
+header h1 {
+    display: inline-block;
+
+    background: linear-gradient(
+        90deg,
+        var(--hijau-tua),
+        #387A5B,
+        var(--hijau-tua)
+    );
+
+    background-size: 200% auto;
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    animation: kilau 5s linear infinite;
+
+    text-shadow: 0 2px 4px rgba(255, 255, 255, 0.6);
+}
+
+
+header p {
+    margin: 0;
+    font-size: 1.1rem;
+    font-style: italic;
+    color: var(--hijau-tua);
+}
+
+
+/* Animasi Kilau */
+
+@keyframes kilau {
+    to {
+        background-position: 200% center;
+    }
+}
+
+
+/* ==========================================================================
+   GELEMBUNG NAIK DI HEADER
+   ========================================================================== */
+
+.gelembung span {
+    position: absolute;
+    bottom: -60px;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.75);
+
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.9);
+
+    animation: naik 9s linear infinite;
+
+    pointer-events: none;
+}
+
+
+.gelembung span:nth-child(1) {
+    left: 8%;
+    width: 22px;
+    height: 22px;
+    animation-duration: 8s;
+    animation-delay: -1s;
+}
+
+.gelembung span:nth-child(2) {
+    left: 22%;
+    width: 38px;
+    height: 38px;
+    animation-duration: 11s;
+    animation-delay: -5s;
+}
+
+.gelembung span:nth-child(3) {
+    left: 38%;
+    width: 16px;
+    height: 16px;
+    animation-duration: 7s;
+    animation-delay: -3s;
+}
+
+.gelembung span:nth-child(4) {
+    left: 55%;
+    width: 32px;
+    height: 32px;
+    animation-duration: 10s;
+    animation-delay: -7s;
+}
+
+.gelembung span:nth-child(5) {
+    left: 72%;
+    width: 20px;
+    height: 20px;
+    animation-duration: 8s;
+    animation-delay: -2s;
+}
+
+.gelembung span:nth-child(6) {
+    left: 88%;
+    width: 42px;
+    height: 42px;
+    animation-duration: 12s;
+    animation-delay: -9s;
+}
+
+
+/* Animasi Gelembung */
+
+@keyframes naik {
+    0% {
+        transform: translate(0, 0);
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 1;
+    }
+
+    50% {
+        transform: translate(18px, -110px);
+    }
+
+    100% {
+        transform: translate(-12px, -260px);
+        opacity: 0;
+    }
+}
+
+
+/* ==========================================================================
+   LAYOUT & SIDEBAR
+   ========================================================================== */
+
+.layout {
+    display: flex;
+    align-items: stretch;
+}
+
+
+aside {
+    width: 240px;
+    flex-shrink: 0;
+
+    padding: 28px 22px;
+
+    background: linear-gradient(
+        180deg,
+        var(--pink-ultra-muda),
+        var(--hijau-ultra-muda)
+    );
+
+    border-right: 1px solid var(--pink-muda);
+
+    animation: munculNaik 0.9s 0.2s ease both;
+}
+
+
+aside h3 {
+    margin-top: 0;
+    font-size: 1.15rem;
+    color: var(--hijau-tua);
+}
+
+
+aside ul {
+    list-style: none;
+    margin: 0 0 24px;
+    padding: 0;
+}
+
+
+aside li {
+    margin-bottom: 8px;
+}
+
+
+aside a {
+    display: block;
+
+    padding: 9px 14px;
+
+    border-radius: 12px;
+
+    color: var(--hijau-tua);
+    text-decoration: none;
+
+    background: rgba(255, 255, 255, 0.85);
+
+    border: 1px solid rgba(255, 209, 220, 0.5);
+
+    box-shadow: 0 2px 6px rgba(46, 90, 68, 0.05);
+
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+
+aside a:hover,
+aside a.aktif {
+    background: linear-gradient(
+        90deg,
+        var(--hijau-tua),
+        #387A5B
+    );
+
+    color: var(--pink-ultra-muda);
+
+    font-weight: 600;
+
+    box-shadow: 0 6px 16px rgba(46, 90, 68, 0.22);
+
+    transform: translateX(6px);
+}
+
+
+/* Kotak Informasi */
+
+.kotak {
+    background: rgba(255, 255, 255, 0.85);
+
+    border-left: 4px solid var(--pink-sedang);
+
+    padding: 12px 14px;
+
+    border-radius: 8px;
+
+    font-size: 0.9rem;
+    color: var(--teks-utama);
+
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+
+/* ==========================================================================
+   AREA UTAMA (MAIN)
+   ========================================================================== */
+
+main {
+    flex: 1;
+
+    padding: 32px 40px;
+
+    background: var(--putih-murni);
+
+    min-width: 0;
+
+    animation: munculNaik 0.9s ease both;
+}
+
+
+/* ==========================================================================
+   TABEL ESTETIK
+   ========================================================================== */
+
+table {
+    border-collapse: separate;
+    border-spacing: 0;
+
+    width: 100%;
+
+    margin: 16px 0;
+
+    background: var(--krem-lembut);
+
+    border: 1px solid var(--pink-muda);
+
+    border-radius: 12px;
+
+    overflow: hidden;
+
+    font-size: 0.95rem;
+}
+
+
+th {
+    background: linear-gradient(
+        90deg,
+        var(--hijau-tua),
+        #387A5B
+    );
+
+    color: #ffffff;
+
+    font-weight: 500;
+    font-style: italic;
+
+    padding: 12px 14px;
+}
+
+
+td {
+    padding: 10px 14px;
+
+    border-bottom: 1px solid var(--pink-ultra-muda);
+    border-right: 1px solid var(--pink-ultra-muda);
+
+    color: var(--teks-utama);
+}
+
+
+td:last-child {
+    border-right: none;
+}
+
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+
+tr:nth-child(even) td {
+    background: rgba(255, 240, 245, 0.45);
+}
+
+
+.scroll {
+    overflow-x: auto;
+}
+
+
+/* ==========================================================================
+   FORM & INPUT
+   ========================================================================== */
+
+input[type="text"],
+input[type="tel"],
+input[type="email"],
+input[type="date"],
+select,
+textarea {
+    width: 100%;
+    max-width: 420px;
+
+    padding: 9px 12px;
+
+    border: 1.5px solid var(--pink-muda);
+
+    border-radius: 10px;
+
+    background: var(--putih-murni);
+
+    font: inherit;
+    font-size: 0.95rem;
+
+    color: var(--teks-utama);
+
+    outline: none;
+
+    transition:
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+input[type="text"]:focus,
+input[type="tel"]:focus,
+input[type="email"]:focus,
+input[type="date"]:focus,
+select:focus,
+textarea:focus {
+    border-color: var(--hijau-sedang);
+
+    box-shadow:
+        0 0 0 3px rgba(163, 228, 215, 0.35);
+}
+
+
+input[type="submit"],
+input[type="reset"] {
+    padding: 10px 24px;
+
+    border: 0;
+
+    border-radius: 24px;
+
+    font: inherit;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+}
+
+
+input[type="submit"] {
+    background: linear-gradient(
+        90deg,
+        var(--hijau-tua),
+        #387A5B
+    );
+
+    color: #ffffff;
+
+    box-shadow:
+        0 4px 12px rgba(46, 90, 68, 0.2);
+}
+
+
+input[type="submit"]:hover {
+    color: var(--pink-ultra-muda);
+
+    background: linear-gradient(
+        90deg,
+        #387A5B,
+        var(--hijau-tua)
+    );
+
+    box-shadow:
+        0 6px 18px rgba(46, 90, 68, 0.35);
+
+    transform: translateY(-2px);
+}
+
+
+input[type="reset"] {
+    background: var(--pink-muda);
+    color: var(--hijau-tua);
+}
+
+
+input[type="reset"]:hover {
+    background: var(--pink-sedang);
+}
+
+
+/* ==========================================================================
+   GALERI & MEDIA
+   ========================================================================== */
+
+.galeri {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fill, minmax(200px, 1fr));
+
+    gap: 18px;
+}
+
+
+figure {
+    margin: 0;
+
+    background: var(--putih-murni);
+
+    border: 1px solid var(--pink-ultra-muda);
+
+    border-radius: 14px;
+
+    padding: 10px;
+
+    text-align: center;
+
+    font-size: 0.9rem;
+    font-style: italic;
+
+    box-shadow:
+        0 4px 14px rgba(46, 90, 68, 0.06);
+
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+
+figure:hover {
+    transform: translateY(-6px) rotate(-1deg);
+
+    box-shadow:
+        0 12px 22px rgba(232, 146, 168, 0.25);
+}
+
+
+figure img {
+    width: 100%;
+    height: 150px;
+
+    object-fit: cover;
+
+    border-radius: 10px;
+
+    background: var(--pink-ultra-muda);
+}
+
+
+video {
+    max-width: 100%;
+    border-radius: 12px;
+}
+
+
+/* ==========================================================================
+   ELEMEN KHUSUS - BERNAPAS
+   ========================================================================== */
+
+.napas {
+    text-align: center;
+
+    padding: 30px 12px;
+
+    margin: 28px 0;
+
+    background: linear-gradient(
+        160deg,
+        var(--pink-ultra-muda),
+        var(--hijau-ultra-muda)
+    );
+
+    border-radius: 20px;
+
+    border: 1px solid rgba(255, 209, 220, 0.6);
+}
+
+
+/* Komponen Lingkaran Bernapas */
+
+.lingkaran {
+    position: relative;
+
+    width: 130px;
+    height: 130px;
+
+    margin: 26px auto 36px;
+
+    border-radius: 50%;
+
+    background: radial-gradient(
+        circle at 35% 30%,
+        #ffffff,
+        var(--pink-sedang) 55%,
+        var(--hijau-sedang)
+    );
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    animation: bernapas 8s ease-in-out infinite;
+}
+
+
+.lingkaran span {
+    position: absolute;
+
+    color: var(--hijau-tua);
+
+    font-weight: 700;
+    font-style: italic;
+
+    opacity: 0;
+}
+
+
+.lingkaran .tarik {
+    animation: tarik 8s infinite;
+}
+
+
+.lingkaran .hembus {
+    animation: hembus 8s infinite;
+}
+
+
+/* Animasi Bernapas */
+
+@keyframes bernapas {
+    0%,
+    100% {
+        transform: scale(0.82);
+
+        box-shadow:
+            0 0 0 0 rgba(163, 228, 215, 0.5);
+    }
+
+    50% {
+        transform: scale(1.28);
+
+        box-shadow:
+            0 0 0 26px rgba(163, 228, 215, 0);
+    }
+}
+
+
+/* Animasi Tarik Napas */
+
+@keyframes tarik {
+    0% {
+        opacity: 0;
+    }
+
+    10%,
+    40% {
+        opacity: 1;
+    }
+
+    50%,
+    100% {
+        opacity: 0;
+    }
+}
+
+
+/* Animasi Hembus Napas */
+
+@keyframes hembus {
+    0%,
+    50% {
+        opacity: 0;
+    }
+
+    60%,
+    90% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+
+footer {
+    padding: 22px 40px;
+
+    text-align: center;
+
+    background: linear-gradient(
+        90deg,
+        var(--hijau-tua),
+        #387A5B,
+        var(--hijau-tua)
+    );
+
+    color: var(--pink-ultra-muda);
+
+    font-style: italic;
+
+    font-size: 0.9rem;
+}
+
+
+/* ==========================================================================
+   ANIMASI TAMPILAN
+   ========================================================================== */
+
+@keyframes munculNaik {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+
+/* Animasi ketika elemen masuk viewport */
+
+@supports (animation-timeline: view()) {
+    figure,
+    .napas,
+    table {
+        animation: munculNaik linear both;
+
+        animation-timeline: view();
+
+        animation-range:
+            entry 0% entry 40%;
+    }
+}
+
+
+/* ==========================================================================
+   RESPONSIVE DESIGN
+   ========================================================================== */
+
+@media (max-width: 720px) {
+
+    .layout {
+        flex-direction: column;
+    }
+
+    aside {
+        width: 100%;
+
+        border-right: 0;
+
+        border-bottom: 1px solid var(--pink-muda);
+    }
+
+    main,
+    header {
+        padding: 24px 20px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+}
+
+
+/* ==========================================================================
+   REDUCE MOTION
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    * {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+/* ==========================================================================
+   TAMBAHAN: TOMBOL AKSI & PESAN (untuk koneksi backend)
+   ========================================================================== */
+
+.btn {
+    padding: 5px 14px;
+    border: 0;
+    border-radius: 16px;
+    font: inherit;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    background: var(--hijau-muda);
+    color: var(--hijau-tua);
+    transition: all 0.25s ease;
+}
+
+.btn:hover { background: var(--hijau-sedang); }
+.btn-hapus { background: var(--pink-muda); }
+.btn-hapus:hover { background: var(--pink-sedang); }
+
+.pesan {
+    margin: 14px 0;
+    padding: 10px 14px;
+    border-radius: 10px;
+    font-size: 0.92rem;
+}
+.pesan.galat { background: #FDECEF; border-left: 4px solid var(--pink-aksen); }
+.pesan.sukses { background: var(--hijau-ultra-muda); border-left: 4px solid var(--hijau-aksen); }
+.pesan ul { margin: 4px 0 0; padding-left: 20px; }
+
+.panel-ubah {
+    margin: 20px 0;
+    padding: 18px 22px;
+    background: var(--pink-ultra-muda);
+    border: 1px solid var(--pink-muda);
+    border-radius: 14px;
+}
+.panel-ubah td { background: transparent !important; border: 0; }
